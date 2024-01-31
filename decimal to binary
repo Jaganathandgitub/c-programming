@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void decimalToBinaryAndOctal(int decimalNumber) {
+    int binaryNumber[32];  // Assuming a 32-bit integer
+    int octalNumber[32];   // Assuming a 32-bit integer
+    int i = 0, j;
+
+    // Convert to binary
+    while (decimalNumber > 0) {
+        binaryNumber[i] = decimalNumber % 2;
+        decimalNumber = decimalNumber / 2;
+        i++;
+    }
+
+    printf("Binary representation: ");
+    for (j = i - 1; j >= 0; j--) {
+        printf("%d", binaryNumber[j]);
+    }
+    printf("\n");
+
+    // Convert to octal
+    i = 0;
+    decimalNumber = 456;  // Resetting the decimalNumber for octal conversion
+    while (decimalNumber > 0) {
+        octalNumber[i] = decimalNumber % 8;
+        decimalNumber = decimalNumber / 8;
+        i++;
+    }
+
+    printf("Octal representation: ");
+    for (j = i - 1; j >= 0; j--) {
+        printf("%d", octalNumber[j]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int decimalNumber;
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimalNumber);
+
+    decimalToBinaryAndOctal(decimalNumber);
+
+    return 0;
+}
